@@ -24,6 +24,8 @@
     <Button
         android:id="@+id/btnConnexion"
         android:text="Se connecter"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#00BCD4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" />

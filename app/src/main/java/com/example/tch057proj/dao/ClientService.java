@@ -19,7 +19,7 @@ public interface ClientService {
     // Vérifier les identifiants
     @GET("clients")
     Call<List<Client>> getClientParIdentifiants(
-            @Query("email") String email,
-            @Query("mdp") String motDePasse
+            @Query("courriel") String email,
+            @Query("motDePasse") String motDePasse
     );
 }

@@ -17,6 +17,13 @@
         <EditText android:id="@+id/etAdresse" android:hint="Adresse" android:layout_width="match_parent" android:layout_height="wrap_content"/>
         <EditText android:id="@+id/etMotDePasse" android:hint="Mot de passe" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
-        <Button android:id="@+id/btnInscription" android:text="S'inscrire" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btnInscription"
+            android:text="S'inscrire"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#00BCD4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>

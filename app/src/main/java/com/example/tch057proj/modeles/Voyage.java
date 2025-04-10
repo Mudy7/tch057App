@@ -1,43 +1,99 @@
 package com.example.tch057proj.modeles;
 
+import java.util.List;
+
 public class Voyage {
     private int id;
-    private String destination;
-    private String type;
-    private String resume;
+    private String nom_voyage;
+    private String description;
     private double prix;
+    private String destination;
     private String image_url;
-    private String dateDepart;
+    private int duree_jours;
+    private List<Trip> trips;
+    private String type_de_voyage;
+    private String activites_incluses;
 
-    // Constructeurs, getters et setters
+    // Getters and Setters
 
-    public Voyage() {}
+    public int getId() {
+        return id;
+    }
 
-    public int getId() { return id; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public String getNom_voyage() {
+        return nom_voyage;
+    }
 
-    public String getDestination() { return destination; }
+    public void setNom_voyage(String nom_voyage) {
+        this.nom_voyage = nom_voyage;
+    }
 
-    public void setDestination(String destination) { this.destination = destination; }
+    public String getDescription() {
+        return description;
+    }
 
-    public String getType() { return type; }
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-    public void setType(String type) { this.type = type; }
+    public double getPrix() {
+        return prix;
+    }
 
-    public String getResume() { return resume; }
+    public void setPrix(double prix) {
+        this.prix = prix;
+    }
 
-    public void setResume(String resume) { this.resume = resume; }
+    public String getDestination() {
+        return destination;
+    }
 
-    public double getPrix() { return prix; }
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
-    public void setPrix(double prix) { this.prix = prix; }
+    public String getImage_url() {
+        return image_url;
+    }
 
-    public String getImage_url() { return image_url; }
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
 
-    public void setImageUrl(String image_url) { this.image_url = image_url; }
+    public int getDuree_jours() {
+        return duree_jours;
+    }
 
-    public String getDateDepart() { return dateDepart; }
+    public void setDuree_jours(int duree_jours) {
+        this.duree_jours = duree_jours;
+    }
 
-    public void setDateDepart(String dateDepart) { this.dateDepart = dateDepart; }
+    public List<Trip> getTrips() {
+        return trips;
+    }
+
+    public void setTrips(List<Trip> trips) {
+        this.trips = trips;
+    }
+
+    public String getType_de_voyage() {
+        return type_de_voyage;
+    }
+
+    public void setType_de_voyage(String type_de_voyage) {
+        this.type_de_voyage = type_de_voyage;
+    }
+
+    public String getActivites_incluses() {
+        return activites_incluses;
+    }
+
+    public void setActivites_incluses(String activites_incluses) {
+        this.activites_incluses = activites_incluses;
+    }
 }
+

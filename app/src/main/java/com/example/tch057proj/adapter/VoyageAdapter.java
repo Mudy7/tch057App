@@ -29,8 +29,9 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
     @Override
     public void onBindViewHolder(VoyageViewHolder holder, int position) {
         Voyage voyage = voyageList.get(position);
+
         holder.tvDestination.setText(voyage.getDestination());
-        holder.tvResume.setText(voyage.getResume());
+        holder.tvResume.setText(voyage.getDescription());
         holder.tvPrix.setText(voyage.getPrix() + " $");
 
         Glide.with(context)
