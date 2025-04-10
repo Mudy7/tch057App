@@ -128,7 +128,13 @@ public class AccueilActivity extends AppCompatActivity {
                     } else {
                         recyclerView.setVisibility(View.VISIBLE);
                         tvEmptyMessage.setVisibility(View.GONE);
-                        adapter = new VoyageAdapter(AccueilActivity.this, voyages);
+
+                        // Pass the OnItemClickListener to handle item click
+                        VoyageAdapter adapter = new VoyageAdapter(AccueilActivity.this, voyages, voyage -> {
+                            Intent intent = new Intent(AccueilActivity.this, VoyageDetailActivity.class);
+                            intent.putExtra("VOYAGE_ID", voyage.getId());  // Pass the Voyage ID
+                            startActivity(intent);
+                        });
                         recyclerView.setAdapter(adapter);
                     }
                 } else {

@@ -14,10 +14,16 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
 
     private Context context;
     private List<Voyage> voyageList;
+    private OnItemClickListener onItemClickListener;  // Add OnItemClickListener
 
-    public VoyageAdapter(Context context, List<Voyage> voyageList) {
+    public interface OnItemClickListener {
+        void onItemClick(Voyage voyage);  // Define method to handle item click
+    }
+
+    public VoyageAdapter(Context context, List<Voyage> voyageList, OnItemClickListener onItemClickListener) {
         this.context = context;
         this.voyageList = voyageList;
+        this.onItemClickListener = onItemClickListener;  // Set the listener
     }
 
     @Override
@@ -31,13 +37,17 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
         Voyage voyage = voyageList.get(position);
 
         holder.tvDestination.setText(voyage.getDestination());
-        holder.tvResume.setText(voyage.getDescription());
         holder.tvPrix.setText(voyage.getPrix() + " $");
 
         Glide.with(context)
                 .load(voyage.getImage_url())
-                .placeholder(R.drawable.ic_launcher_background)
+                .placeholder(R.drawable.ic_launcher_background)  // Provide placeholder image
                 .into(holder.imageVoyage);
+
+        // Set click listener on the item
+        holder.itemView.setOnClickListener(v -> {
+            onItemClickListener.onItemClick(voyage);  // Pass the clicked Voyage to the listener
+        });
     }
 
     @Override
@@ -46,13 +56,12 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
     }
 
     public static class VoyageViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDestination, tvResume, tvPrix;
+        TextView tvDestination, tvPrix;  // Removed tvResume
         ImageView imageVoyage;
 
         public VoyageViewHolder(View itemView) {
             super(itemView);
             tvDestination = itemView.findViewById(R.id.tvDestination);
-            tvResume = itemView.findViewById(R.id.tvResume);
             tvPrix = itemView.findViewById(R.id.tvPrix);
             imageVoyage = itemView.findViewById(R.id.imageVoyage);
         }
