@@ -35,8 +35,9 @@ public class AccueilActivity extends AppCompatActivity {
     VoyageAdapter adapter;
     CategorieAdapter categorieAdapter;
     LinearLayout filterSection;
-    ImageButton btnToggleFilters;
+    ImageButton btnToggleFilters, btnHistory;
     TextView tvCategorieTitle, tvEmptyMessage, tvRandomTitle;
+
 
     private boolean categorySelected = false;
 
@@ -57,23 +58,30 @@ public class AccueilActivity extends AppCompatActivity {
         tvRandomTitle = findViewById(R.id.tvRandomTitle);
         filterSection = findViewById(R.id.filterSection);
         btnToggleFilters = findViewById(R.id.btnToggleFilters);
+        btnHistory = findViewById(R.id.btnHistory);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewCategories.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewRandom.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        // Spinner setup
         String[] types = {"Tous les Catégorie", "Aventure", "Culturel", "Bien-être"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, types);
         spinnerType.setAdapter(spinnerAdapter);
 
-        // Sample categories
         List<Categorie> categories = Arrays.asList(
                 new Categorie("Culturel", "https://images.pexels.com/photos/31418360/pexels-photo-31418360/free-photo-of-serene-view-of-mount-fuji-with-cherry-blossoms.jpeg"),
                 new Categorie("Aventure", "https://images.pexels.com/photos/9021404/pexels-photo-9021404.jpeg"),
                 new Categorie("Bien-être", "https://images.pexels.com/photos/994605/pexels-photo-994605.jpeg"),
                 new Categorie("Nature", "https://images.pexels.com/photos/147411/italy-mountains-dawn-daybreak-147411.jpeg")
         );
+
+
+        btnHistory.setOnClickListener(v -> {
+            Intent intent = new Intent(AccueilActivity.this, HistoryActivity.class);  // Navigate to HistoryActivity
+            startActivity(intent);
+        });
+
+
 
         categorieAdapter = new CategorieAdapter(this, categories, selectedType -> {
             categorySelected = true;

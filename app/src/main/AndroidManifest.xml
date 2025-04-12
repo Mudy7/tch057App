@@ -16,6 +16,12 @@
         android:theme="@style/Theme.Tch057Proj"
         tools:targetApi="31">
         <activity
+            android:name=".activity.HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ReserverActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.VoyageDetailActivity"
             android:exported="false" />
         <activity

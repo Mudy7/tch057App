@@ -10,25 +10,80 @@
         android:padding="16dp">
 
         <!-- Image for the Voyage -->
-        <ImageView
-            android:id="@+id/imageVoyage"
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="Image de Voyage"/>
+            android:layout_height="match_parent">
 
-        <!-- Voyage Destination -->
+            <!-- Image for the Voyage -->
+            <ImageView
+                android:id="@+id/imageVoyage"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Image de Voyage"
+                android:layout_gravity="center"
+                android:clipToOutline="true"
+                android:outlineProvider="background"/>
+
+            <!-- Back Button in the top-left corner -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/circular_background_black"
+            android:src="@drawable/ic_arrow_left"
+            android:contentDescription="Back"
+            android:layout_margin="16dp"/>
+
+            <!-- Rounded black background at the bottom of the image with reduced opacity -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="#66000000"> <!-- Semi-transparent black background -->
+
+                <TextView
+                    android:id="@+id/tvDestination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:layout_margin="12dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#B0B0B0"
+                    android:layout_below="@id/tvDestination"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+        <!-- Description Label -->
         <TextView
-            android:id="@+id/tvDestination"
+            android:id="@+id/tvDescriptionLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:text="Description"
+            android:textSize="16sp"
             android:textColor="#000000"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
 
-        <!-- Voyage Description -->
+        <!-- Description Text -->
         <TextView
             android:id="@+id/tvDescription"
             android:layout_width="wrap_content"
@@ -37,58 +92,91 @@
             android:textColor="#333333"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Price -->
+        <!-- Duration -->
         <TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/tvDurationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginBottom="16dp"/>
-
-        <!-- Date Picker for trip selection -->
-        <TextView
-            android:id="@+id/tvSelectDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sélectionner la date de départ"
+            android:text="Durée"
             android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
 
-        <Spinner
-            android:id="@+id/spinnerDate"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#333333"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Number of seats -->
+        <!-- Activities included -->
+        <TextView
+            android:id="@+id/tvActivitiesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Activités incluses"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tvActivities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="16dp"/>
+
+
+        <!-- Places disponibles -->
+        <TextView
+            android:id="@+id/tvAvailableSeatsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Places disponibles"
+            android:textSize="16sp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"
+            android:textStyle="bold"/>
+
         <TextView
             android:id="@+id/tvAvailableSeats"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Places disponibles: "
+            android:text="0"
             android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
-
-        <EditText
-            android:id="@+id/etSeats"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Entrez le nombre de places"
-            android:inputType="number"
+            android:textColor="#333333"
             android:layout_marginBottom="16dp"/>
 
-        <!-- Book Now Button -->
-        <Button
-            android:id="@+id/btnBookNow"
+        <!-- Price and Sign Up Button -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:text="Réserver maintenant"
-            android:textColor="#FFFFFF"
-            android:backgroundTint="#00BCD4"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
 
+            <!-- Price -->
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Button -->
+            <Button
+                android:id="@+id/btnBookNow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="reserver"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00BCD4"/>
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

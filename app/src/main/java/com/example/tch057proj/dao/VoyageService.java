@@ -1,12 +1,15 @@
 package com.example.tch057proj.dao;
 
+import com.example.tch057proj.modeles.SeatsUpdate;
 import com.example.tch057proj.modeles.Voyage;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Body;
 import retrofit2.http.Query;
 
 public interface VoyageService {
@@ -24,4 +27,8 @@ public interface VoyageService {
 
     @GET("voyages")
     Call<List<Voyage>> getTousLesVoyages();
+
+    @PUT("voyages/{voyageId}")
+    Call<Voyage> updateVoyage(@Path("voyageId") int voyageId, @Body Voyage updatedVoyage);
+
 }
