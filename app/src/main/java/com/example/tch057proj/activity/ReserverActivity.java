@@ -1,12 +1,15 @@
 package com.example.tch057proj.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.tch057proj.R;
+import com.example.tch057proj.dao.ReservationDAO;
+import com.example.tch057proj.modeles.Reservation;
 import com.example.tch057proj.modeles.SeatsUpdate;
 import com.example.tch057proj.modeles.Trip;
 import com.example.tch057proj.modeles.Voyage;
@@ -102,6 +105,21 @@ public class ReserverActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 // Once updated, display reservation complete message
                                 Toast.makeText(ReserverActivity.this, "Réservation complète", Toast.LENGTH_SHORT).show();
+
+                                SharedPreferences sharedPreferences = getSharedPreferences("session", MODE_PRIVATE);
+                                int clientId = sharedPreferences.getInt("clientId", -1);
+
+
+                                ReservationDAO reservationDAO = new ReservationDAO(ReserverActivity.this);
+                                reservationDAO.insertReservation(new Reservation(
+                                        0,  // id auto-incrémenté
+                                        clientId,  // récupéré via SharedPreferences
+                                        voyage.getId(),
+                                        tripDate,
+                                        selectedSeats,
+                                        selectedSeats * voyage.getPrix()
+                                ));
+
 
                                 // After successful reservation, go back to the AccueilActivity (Home screen)
                                 Intent intent = new Intent(ReserverActivity.this, AccueilActivity.class);

@@ -1,13 +1,16 @@
 package com.example.tch057proj.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.tch057proj.R;
 import com.example.tch057proj.dao.ApiClient;
 import com.example.tch057proj.dao.ClientService;
+import com.example.tch057proj.dao.SessionManager;
 import com.example.tch057proj.modeles.Client;
 
 import java.util.List;
@@ -55,14 +58,20 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<List<Client>> call, Response<List<Client>> response) {
                     if (response.isSuccessful() && response.body() != null && !response.body().isEmpty()) {
+                        Client clientConnecte = response.body().get(0);
+                        int clientId = clientConnecte.getId();
+
+                        SessionManager sessionManager = new SessionManager(MainActivity.this);
+                        sessionManager.saveClientId(clientId);
+
+                        Log.d("SESSION", "clientId sauvegardé : " + clientConnecte.getId());
+
                         Toast.makeText(MainActivity.this, "Connexion réussie", Toast.LENGTH_SHORT).show();
-                        // Redirection vers l'accueil
                         Intent intent = new Intent(MainActivity.this, AccueilActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
-                        Toast.makeText(MainActivity.this, "Identifiants incorrects", Toast.LENGTH_SHORT).show();
                     }
+
                 }
 
                 @Override
