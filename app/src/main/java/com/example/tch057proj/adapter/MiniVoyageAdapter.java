@@ -14,14 +14,13 @@ public class MiniVoyageAdapter extends RecyclerView.Adapter<MiniVoyageAdapter.Mi
 
     private final Context context;
     private final List<Voyage> voyages;
-    private final OnItemClickListener onItemClickListener;  // Added
+    private final OnItemClickListener onItemClickListener;
 
-    // Interface for handling item clicks
+
     public interface OnItemClickListener {
         void onItemClick(Voyage voyage);
     }
 
-    // Updated constructor to accept OnItemClickListener
     public MiniVoyageAdapter(Context context, List<Voyage> voyages, OnItemClickListener onItemClickListener) {
         this.context = context;
         this.voyages = voyages;
@@ -44,7 +43,6 @@ public class MiniVoyageAdapter extends RecyclerView.Adapter<MiniVoyageAdapter.Mi
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imageVoyage);
 
-        // Set onClickListener to pass the voyage object to the listener
         holder.itemView.setOnClickListener(v -> onItemClickListener.onItemClick(voyage));
     }
 

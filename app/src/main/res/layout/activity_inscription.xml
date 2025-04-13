@@ -9,17 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText android:id="@+id/etNom" android:hint="Nom" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etPrenom" android:hint="Prénom" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etCourriel" android:hint="Courriel" android:inputType="textEmailAddress" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etNom" android:hint="@string/nom" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etPrenom" android:hint="@string/pr_nom" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etCourriel" android:hint="@string/courriel" android:inputType="textEmailAddress" android:layout_width="match_parent" android:layout_height="wrap_content"/>
         <EditText android:id="@+id/etAge" android:hint="Âge" android:inputType="number" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etTelephone" android:hint="Téléphone" android:inputType="phone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etAdresse" android:hint="Adresse" android:layout_width="match_parent" android:layout_height="wrap_content"/>
-        <EditText android:id="@+id/etMotDePasse" android:hint="Mot de passe" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etTelephone" android:hint="@string/t_l_phone" android:inputType="phone" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etAdresse" android:hint="@string/adresse" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/etMotDePasse" android:hint="@string/mot_de_passe" android:inputType="textPassword" android:layout_width="match_parent" android:layout_height="wrap_content"/>
 
         <Button
             android:id="@+id/btnInscription"
-            android:text="S'inscrire"
+            android:text="@string/s_inscrire"
             android:textColor="#FFFFFF"
             android:backgroundTint="#00BCD4"
             android:layout_width="match_parent"

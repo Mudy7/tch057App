@@ -14,7 +14,7 @@ public class Voyage {
     private String type_de_voyage;
     private String activites_incluses;
 
-    // Getters and Setters
+
 
     public int getId() {
         return id;

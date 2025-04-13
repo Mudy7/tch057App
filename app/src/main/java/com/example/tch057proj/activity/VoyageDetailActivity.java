@@ -20,16 +20,16 @@ import retrofit2.Response;
 
 public class VoyageDetailActivity extends AppCompatActivity {
 
-    private Voyage voyage; // Object representing the selected Voyage
+    private Voyage voyage;
     private TextView tvDestination, tvDescription, tvPrice, tvDuration, tvActivities, tvLocation, tvAvailableSeats;
-    private Button btnBookNow; // Button to initiate the booking process
+    private Button btnBookNow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voyage_detail);
 
-        // Initialize the views
+
         tvDestination = findViewById(R.id.tvDestination);
         tvDescription = findViewById(R.id.tvDescription);
         tvPrice = findViewById(R.id.tvPrice);
@@ -41,38 +41,36 @@ public class VoyageDetailActivity extends AppCompatActivity {
 
         btnBookNow = findViewById(R.id.btnBookNow);
 
-        // Get the Voyage ID passed from the previous activity
-        int voyageId = getIntent().getIntExtra("VOYAGE_ID", -1);  // Get Voyage ID
+
+        int voyageId = getIntent().getIntExtra("VOYAGE_ID", -1);
 
         if (voyageId != -1) {
-            fetchVoyageDetails(voyageId);  // Fetch details based on the Voyage ID
+            fetchVoyageDetails(voyageId);
         } else {
             Toast.makeText(this, "No Voyage ID received", Toast.LENGTH_SHORT).show();
         }
 
-        // Book Now Button OnClick Listener
+
         btnBookNow.setOnClickListener(v -> {
-            // Create an Intent to start the ReserverActivity
+
             Intent intent = new Intent(VoyageDetailActivity.this, ReserverActivity.class);
 
-            // Pass the voyageId to the next activity
-            intent.putExtra("VOYAGE_ID", voyage.getId());  // Pass only the Voyage ID
 
-            // Start the ReserverActivity
+            intent.putExtra("VOYAGE_ID", voyage.getId());
+
             startActivity(intent);
         });
 
-        // Back Button Click Listener
+
         findViewById(R.id.btnBack).setOnClickListener(v -> {
-            // Finish the activity and go back to the previous screen
+
             finish();
         });
     }
 
-    // Fetch Voyage details based on the Voyage ID
     private void fetchVoyageDetails(int voyageId) {
         VoyageService service = ApiClient.getClient().create(VoyageService.class);
-        Call<List<Voyage>> call = service.getTousLesVoyages();  // Fetch all voyages
+        Call<List<Voyage>> call = service.getTousLesVoyages();
 
         call.enqueue(new Callback<List<Voyage>>() {
             @Override
@@ -80,9 +78,9 @@ public class VoyageDetailActivity extends AppCompatActivity {
                 if (response.isSuccessful() && response.body() != null) {
                     List<Voyage> voyages = response.body();
                     for (Voyage v : voyages) {
-                        if (v.getId() == voyageId) {  // Find the selected voyage based on ID
+                        if (v.getId() == voyageId) {
                             voyage = v;
-                            setUpVoyageDetails();  // Set up Voyage details once the data is fetched
+                            setUpVoyageDetails();
                             break;
                         }
                     }
