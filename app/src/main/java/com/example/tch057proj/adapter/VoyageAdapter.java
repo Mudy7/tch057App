@@ -36,22 +36,22 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
     public void onBindViewHolder(VoyageViewHolder holder, int position) {
         Voyage voyage = voyageList.get(position);
 
-        // Set the destination
+
         holder.tvDestination.setText(voyage.getDestination());
 
-        // Set the description (tvResume)
+
         holder.tvResume.setText(voyage.getDescription());
 
-        // Set the price
+
         holder.tvPrix.setText(voyage.getPrix() + " $");
 
-        // Load the image using Glide
+
         Glide.with(context)
                 .load(voyage.getImage_url())
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(holder.imageVoyage);
 
-        // Set click listener on the item
+
         holder.itemView.setOnClickListener(v -> {
             onItemClickListener.onItemClick(voyage);
         });
@@ -69,7 +69,7 @@ public class VoyageAdapter extends RecyclerView.Adapter<VoyageAdapter.VoyageView
         public VoyageViewHolder(View itemView) {
             super(itemView);
             tvDestination = itemView.findViewById(R.id.tvDestination);
-            tvResume = itemView.findViewById(R.id.tvResume);  // Bind tvResume
+            tvResume = itemView.findViewById(R.id.tvResume);
             tvPrix = itemView.findViewById(R.id.tvPrix);
             imageVoyage = itemView.findViewById(R.id.imageVoyage);
         }

@@ -10,7 +10,7 @@
         android:layout_height="48dp"
         android:layout_marginBottom="16dp"
         android:layout_alignParentStart="true"
-        android:contentDescription="Back Button"
+        android:contentDescription="@string/back_button"
         android:src="@drawable/ic_arrow_left"
         android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
@@ -19,7 +19,7 @@
         android:id="@+id/tvSelectDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sélectionner la date de départ"
+        android:text="@string/s_lectionner_la_date_de_d_part"
         android:textSize="16sp"
         android:layout_marginBottom="8dp"
         android:textStyle="bold"/>
@@ -35,7 +35,7 @@
         android:id="@+id/tvAvailableSeats"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Places disponibles"
+        android:text="@string/places_disponibles"
         android:textSize="16sp"
         android:textColor="#333333"
         android:layout_marginBottom="16dp"/>
@@ -44,7 +44,7 @@
         android:id="@+id/tvSeatsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre de places"
+        android:text="@string/nombre_de_places"
         android:textSize="16sp"
         android:textColor="#000000"
         android:layout_marginBottom="8dp"
@@ -54,7 +54,7 @@
         android:id="@+id/etSeats"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:hint="Entrez le nombre de places"
+        android:hint="@string/entrez_le_nombre_de_places"
         android:inputType="number"
         android:layout_marginBottom="16dp"/>
 
@@ -62,7 +62,7 @@
         android:id="@+id/tvPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prix Total"
+        android:text="@string/prix_total"
         android:textSize="16sp"
         android:textColor="#000000"
         android:layout_marginBottom="8dp"
@@ -72,7 +72,7 @@
         android:id="@+id/tvTotalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Prix: 0 $"
+        android:text="@string/prix_0"
         android:textSize="16sp"
         android:textColor="#333333"
         android:layout_marginBottom="16dp"/>
@@ -81,7 +81,7 @@
         android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:text="Vérifier la disponibilité"
+        android:text="@string/v_rifier_la_disponibilit"
         android:textColor="#FFFFFF"
         android:backgroundTint="#00BCD4"/>
 

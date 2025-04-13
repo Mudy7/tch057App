@@ -77,7 +77,7 @@ public class AccueilActivity extends AppCompatActivity {
 
 
         btnHistory.setOnClickListener(v -> {
-            Intent intent = new Intent(AccueilActivity.this, HistoryActivity.class);  // Navigate to HistoryActivity
+            Intent intent = new Intent(AccueilActivity.this, HistoryActivity.class);
             startActivity(intent);
         });
 
@@ -105,7 +105,6 @@ public class AccueilActivity extends AppCompatActivity {
     }
 
     private void lancerRecherche() {
-        // Hide all extra sections
         recyclerViewCategories.setVisibility(View.GONE);
         tvCategorieTitle.setVisibility(View.GONE);
         recyclerViewRandom.setVisibility(View.GONE);
@@ -137,10 +136,10 @@ public class AccueilActivity extends AppCompatActivity {
                         recyclerView.setVisibility(View.VISIBLE);
                         tvEmptyMessage.setVisibility(View.GONE);
 
-                        // Pass the OnItemClickListener to handle item click
+
                         VoyageAdapter adapter = new VoyageAdapter(AccueilActivity.this, voyages, voyage -> {
                             Intent intent = new Intent(AccueilActivity.this, VoyageDetailActivity.class);
-                            intent.putExtra("VOYAGE_ID", voyage.getId());  // Pass the Voyage ID
+                            intent.putExtra("VOYAGE_ID", voyage.getId());
                             startActivity(intent);
                         });
                         recyclerView.setAdapter(adapter);
@@ -174,12 +173,11 @@ public class AccueilActivity extends AppCompatActivity {
                     Collections.shuffle(all);
                     List<Voyage> random = all.subList(0, Math.min(5, all.size()));
 
-                    // Use the mini adapter and pass the OnItemClickListener
                     MiniVoyageAdapter miniAdapter = new MiniVoyageAdapter(AccueilActivity.this, random, new MiniVoyageAdapter.OnItemClickListener() {
                         @Override
                         public void onItemClick(Voyage voyage) {
                             Intent intent = new Intent(AccueilActivity.this, VoyageDetailActivity.class);
-                            intent.putExtra("VOYAGE_ID", voyage.getId());  // Pass the Voyage ID
+                            intent.putExtra("VOYAGE_ID", voyage.getId());
                             startActivity(intent);
                         }
                     });
@@ -193,11 +191,9 @@ public class AccueilActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<Voyage>> call, Throwable t) {
-                // Handle failure silently
             }
         });
     }
-
 
     private final TextView.OnEditorActionListener searchOnEnter = (v, actionId, event) -> {
         if (actionId == EditorInfo.IME_ACTION_SEARCH ||

@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- 🏷️ Title and History Button -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,24 +20,24 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="50dp">
 
-            <!-- Title Text -->
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Où voulez-vous\npartir ?"
+                android:text="@string/o_voulez_vous_npartir"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 android:textColor="#000000"
                 android:layout_weight="1"
                 android:layout_marginEnd="16dp" />
 
-            <!-- History Button -->
+
             <ImageButton
                 android:id="@+id/btnHistory"
                 android:layout_width="46dp"
                 android:layout_height="46dp"
                 android:src="@drawable/ic_history"
-                android:contentDescription="Historique"
+                android:contentDescription="@string/historique"
                 android:scaleType="centerInside"
                 android:padding="10dp"
                 android:layout_gravity="center_vertical"
@@ -45,7 +45,7 @@
 
         </LinearLayout>
 
-        <!-- 🔍 Search bar + filter button -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,13 +53,13 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="8dp">
 
-            <!-- Search bar -->
+
             <EditText
                 android:id="@+id/etDestination"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="1"
-                android:hint="Rechercher une destination"
+                android:hint="@string/rechercher_une_destination"
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="8dp"
                 android:background="@drawable/input_bg"
@@ -69,7 +69,7 @@
                 android:inputType="text"
                 android:imeOptions="actionSearch" />
 
-            <!-- Filter button -->
+
             <ImageButton
                 android:id="@+id/btnToggleFilters"
                 android:layout_width="50dp"
@@ -77,14 +77,14 @@
                 android:layout_marginStart="8dp"
                 android:src="@drawable/ic_filters"
                 android:background="@drawable/btn_filter_cyan"
-                android:contentDescription="Afficher les filtres"
+                android:contentDescription="@string/afficher_les_filtres"
                 android:scaleType="centerInside"
                 android:padding="12dp"
                 android:layout_gravity="center_vertical"
                 app:tint="#FFFFFF" />
         </LinearLayout>
 
-        <!-- 🔽 Filter Section -->
+
         <LinearLayout
             android:id="@+id/filterSection"
             android:visibility="gone"
@@ -93,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp">
 
-            <!-- Catégorie Spinner -->
+
             <Spinner
                 android:id="@+id/spinnerType"
                 android:layout_width="match_parent"
@@ -104,10 +104,10 @@
                 android:paddingEnd="36dp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Prix -->
+
             <EditText
                 android:id="@+id/etPrixMax"
-                android:hint="Prix maximal"
+                android:hint="@string/prix_maximal"
                 android:inputType="number"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -115,10 +115,10 @@
                 android:paddingStart="12dp"
                 android:layout_marginBottom="8dp" />
 
-            <!-- Date -->
+
             <EditText
                 android:id="@+id/etDate"
-                android:hint="Date de départ"
+                android:hint="@string/date_de_d_part"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/input_bg"
@@ -130,25 +130,25 @@
             android:id="@+id/tvEmptyMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Aucun voyage trouvé"
+            android:text="@string/aucun_voyage_trouv"
             android:textSize="16sp"
             android:gravity="center"
             android:visibility="gone"
             android:padding="16dp"
             android:textColor="#888888"/>
 
-        <!-- 🗂️ Title -->
+
         <TextView
             android:id="@+id/tvCategorieTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Catégories"
+            android:text="@string/cat_gories"
             android:textSize="20sp"
             android:textStyle="bold"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="8dp" />
 
-        <!-- 🔁 Horizontal list of categories -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCategories"
             android:layout_width="match_parent"
@@ -162,7 +162,7 @@
             android:id="@+id/tvRandomTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Quelques destinations"
+            android:text="@string/quelques_destinations"
             android:textSize="18sp"
             android:layout_marginStart="0dp"
             android:layout_marginTop="12dp"
@@ -180,7 +180,6 @@
             android:layout_marginTop="4dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- 📋 Search Results -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewVoyages"
             android:layout_width="match_parent"

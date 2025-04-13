@@ -17,7 +17,6 @@ public class TripAdapter extends ArrayAdapter<Trip> {
     private final Context context;
     private final List<Trip> trips;
 
-    // Constructor for the adapter
     public TripAdapter(Context context, List<Trip> trips) {
         super(context, android.R.layout.simple_spinner_item, trips);
         this.context = context;
@@ -26,25 +25,25 @@ public class TripAdapter extends ArrayAdapter<Trip> {
 
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return getCustomView(position, convertView, parent); // For dropdown view
+        return getCustomView(position, convertView, parent);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return getCustomView(position, convertView, parent); // For normal view
+        return getCustomView(position, convertView, parent);
     }
 
-    // Custom method to handle how each Trip is displayed in the Spinner
+
     private View getCustomView(int position, View convertView, ViewGroup parent) {
-        // Inflating the layout for the spinner items
+
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View row = inflater.inflate(android.R.layout.simple_spinner_item, parent, false);
 
-        // Finding the TextView where we want to display the Trip's date
+
         TextView label = row.findViewById(android.R.id.text1);
 
-        // Setting the Trip date text in the spinner
-        label.setText(trips.get(position).getDate());  // Assuming `Trip` has a `getDate()` method
+
+        label.setText(trips.get(position).getDate());
 
         return row;
     }
