@@ -200,7 +200,6 @@ public class ReserverActivity extends AppCompatActivity {
                 Trip trip = getItem(position);
                 TextView textView = (TextView) view.findViewById(android.R.id.text1);
                 if (trip != null) {
-                    // Format the date to display it in a user-friendly way
                     String formattedDate = formatDateString(trip.getDate());
                     textView.setText(formattedDate);
                 }
@@ -213,7 +212,6 @@ public class ReserverActivity extends AppCompatActivity {
                 Trip trip = getItem(position);
                 TextView textView = (TextView) view.findViewById(android.R.id.text1);
                 if (trip != null) {
-                    // Format the date to display it in a user-friendly way
                     String formattedDate = formatDateString(trip.getDate());
                     textView.setText(formattedDate);
                 }
@@ -223,7 +221,6 @@ public class ReserverActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDate.setAdapter(adapter);
 
-        // Automatically select the nearest available date
         selectNearestDate(trips);
 
         // Display the available seats for the first trip
@@ -236,7 +233,6 @@ public class ReserverActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // Handle if nothing is selected
             }
         });
     }
@@ -248,16 +244,16 @@ public class ReserverActivity extends AppCompatActivity {
         try {
             Date date = inputFormat.parse(dateString);
             if (date != null) {
-                return outputFormat.format(date); // Format the date to French
+                return outputFormat.format(date);
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return dateString;  // Return original date string if parsing fails
+        return dateString;
     }
 
     private void selectNearestDate(List<Trip> trips) {
-        long currentTime = System.currentTimeMillis();  // Get current time in milliseconds
+        long currentTime = System.currentTimeMillis();
 
         for (int i = 0; i < trips.size(); i++) {
             Trip trip = trips.get(i);

@@ -28,7 +28,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         List<Reservation> reservations = reservationDAO.getReservationsByClient(clientId);
 
-        // Tu peux créer un ReservationAdapter pour afficher les réservations dans le ListView
+
         ReservationAdapter adapter = new ReservationAdapter(this, reservations);
         listView.setAdapter(adapter);
     }
